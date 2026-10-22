@@ -32,9 +32,8 @@ The app starts at http://localhost:8080
 ```json
 [
   { "id": 1, "name": "India" },
-  { "id": 2, "name": "France" },
-  { "id": 3, "name": "Luxembourg" },
-  { "id": 4, "name": "Japan" }
+  { "id": 2, "name": "Luxembourg" },
+  { "id": 3, "name": "Japan" }
 ]
 ```
 
@@ -42,8 +41,8 @@ The app starts at http://localhost:8080
 ```json
 {
   "content": [
-    { "id": 1, "name": "Mumbai", "countryId": 1 },
-    { "id": 2, "name": "Delhi", "countryId": 1 }
+    { "id": 1, "name": "Mumbai", "countryId": 1, "specialFood": "Vada Pav" },
+    { "id": 2, "name": "Delhi", "countryId": 1, "specialFood": "Chole Bhature" }
   ],
   "totalElements": 12,
   "page": 0,
@@ -54,17 +53,18 @@ The app starts at http://localhost:8080
 
 `GET /cities/1`
 ```json
-{ "id": 1, "name": "Mumbai", "countryId": 1 }
+{ "id": 1, "name": "Mumbai", "countryId": 1, "specialFood": "Vada Pav" }
 ```
 
 If a country or city id does not exist, the API returns HTTP 404.
 
 ## Pagination
 - `page` starts at 0 (default 0)
-- `size` is how many cities per page (default 10)
+- `size` is how many cities per page (5)
 - The response contains: total records (`totalElements`), current page (`page`), page size (`size`) and total pages (`totalPages`).
 
 ## Assumptions
 - Data is hard-coded (4 countries, 23 cities).
-- A City has: id, name, countryId.
+- A City has: id, name, countryId and specialFood.
+- specialFood is one popular local dish of the city (sample data).
 - Swagger documentation is generated automatically from the code.
